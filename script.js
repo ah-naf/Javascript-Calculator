@@ -270,7 +270,22 @@ function calc(val) {
             num = '';
             break;
         case '.':
+            if (check() && num.length > 0) {
+                break;
+            }
             num += '.'
             break;
     }
+}
+
+function check() {
+    for (let i = num.length - 1; i >= 0; i--) {
+        if (num[i] === '.') {
+            return true;
+        }
+        if (num[i] === '+' || num[i] === '-' || num[i] === '*' || num[i] === '/') {
+            return false;
+        }
+    }
+
 }
